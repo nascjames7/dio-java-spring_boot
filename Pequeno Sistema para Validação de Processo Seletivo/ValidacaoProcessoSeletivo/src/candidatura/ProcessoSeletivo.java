@@ -11,21 +11,14 @@ package candidatura;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ProcessoSeletivo {
-
     //Definição do salário base que não varia.
     static final double SALARIO_BASE = 2000.0;
-
     public static void main(String[] args) {
-
         //Chamada do  método selecaoCandidatos().
         selecaoCandidatos();
-
-        //Chamada do método imprimirSelecionados().
     }
-
     //Método estático (pois se encontra na classe principal) que seleciona os candidatos.
     static void selecaoCandidatos() {
-
         //Defição das variáveis.
         //Definição do Array de candidatos.
         String candidatos[] = {"Felipe", "Márcia", "Júlia", "Paulo", "Augusto", "Mônica", "Fabrício", "Mirela", "Daniela", "João"};
@@ -37,19 +30,15 @@ public class ProcessoSeletivo {
         int candidatoAtual = 0;
         //Definição da variável que indica a posição do candidato a ser alocado no  Array de candidatos aprovados.
         int indiceCandidatoAprovado = 0;
-
         //Implementação do laço para contagem dos candidatos selecionados para a entrevista.
         //O laço para quando o número de candidatos selecionados atinge o valor 5 ou quando finaliza a lista de candidatos no Array.
         while((candidatosSelecionados < 5) && (candidatoAtual < candidatos.length)) {
-
             //Definição da variável que guarda o nome do candidato que está sendo analisado no momento.
             String candidato = candidatos[candidatoAtual];
             //Definição da variável que guarda o salário pretendido, passando a chamar o método: valorPretendido().
             double salarioPretendido = valorPretendido();
-
             //Impressão para simples acompanhamento.
             System.out.println("O candidato " + candidato + " solicitou o salário de "+ salarioPretendido + ".");
-
             //Implementação do fluxo condicional para incremento do número de candidatos selecionados.
             if(salarioPretendido < SALARIO_BASE) {
                 System.out.println("O candidato " + candidato + " foi selecionado para a vaga.");
@@ -57,61 +46,47 @@ public class ProcessoSeletivo {
                 candidatosAprovados[indiceCandidatoAprovado] = candidato;
                 //Incremento do número de candidatos selecionados.
                 candidatosSelecionados++;
-                //Incremento do índice de candidatosAprovados.
-                indiceCandidatoAprovado++;
-                //Incremento da posição no Array de candidatos.
-                candidatoAtual++;
-
-            }else System.out.println("O candidato " + candidato + " não foi selecionado para a vaga");
+            }else {
+                System.out.println("O candidato " + candidato + " não foi selecionado para a vaga");
+                //Preenchimento do Array de candidatos aprovados.
+                candidatosAprovados[indiceCandidatoAprovado] = "REPROVADO";
+            }
             //Incremento da posição no Array de candidatos.
             candidatoAtual++;
-            //Preenchimento do Array de candidatos aprovados.
-            candidatosAprovados[indiceCandidatoAprovado] = "REPROVADO";
             //Incremento do índice de candidatosAprovados.
             indiceCandidatoAprovado++;
         }
         //Impressão da lista de candidatos selecionados.
-        System.out.println("Imprimindo a lista de candidatos selecionados com o índice:");
+        //Definição de Array para utilização do método equals.
+        String candidatosReprovados[] = new String [10];
+        //Implementação do laço para preenchimento do vetor de String candidatosReprovados.
+        for (int indice = 0; indice < candidatosReprovados.length; indice++) {
+            candidatosReprovados[indice] = "REPROVADO";
+        }
+        System.out.println("\nImprimindo a lista de candidatos selecionados com o índice:\n");
         //Implementação do laço para impressão da lista de candidatos selecionados.
-        //Tipo 1 (mais utilizado).
         for (int indice = 0; indice < candidatosAprovados.length; indice++) {
-
             //Implementação do fluxo condicional para impressão dos candidatos aprovados.
-            if((candidatosAprovados[indiceCandidatoAprovado]).equals("REPROVADOS")) {
-
-            }else System.out.println("O candidato de número " + (indiceCandidatoAprovado + 1) + " é o " + candidatosAprovados[indiceCandidatoAprovado]);
+            if((candidatosReprovados[indice]).equals(candidatosAprovados[indice])) {
+                //Impressão apenas dos candidatos aprovados.
+            }else System.out.println("O candidato de número " + (indice + 1) + " é o " + candidatosAprovados[indice]);
         }
-
-        //Tipo 2 (for each).
-        for (String candidato: candidatosAprovados) {
-
-            //Implementação do fluxo condicional para impressão dos candidatos aprovados.
-            if((candidatosAprovados[indiceCandidatoAprovado]).equals("REPROVADOS")) {
-
-            }else System.out.println("O candidato de número " + (indiceCandidatoAprovado + 1) + " é o " + candidatosAprovados[indiceCandidatoAprovado]);
-        }
-
     }
-
     //Método estático que calcula o valor do salário pretendido por determinado candidato.
     static double valorPretendido () {
         //Retorna um valor real calculado de forma aleatória usando [ThreadLocalRandom.current().nextDouble].
         return ThreadLocalRandom.current().nextDouble(1800,2200);
     }
-
     //Método estático que analisa os candidatos em relação ao salário pretendido.
-    static void analisarCandidado (double salarioPretendido) {
-
+    static void analisarCandidato (double salarioPretendido) {
         //Implementação de fluxo condicional para análise dos candidatos.
         //Caso pretenção seja menor que o salário base.
         if(SALARIO_BASE > salarioPretendido) {
-            //
             System.out.println("Ligar para o candidato.");
         //Caso pretenção seja igual ao salário base.
         }else if(SALARIO_BASE == salarioPretendido) {
             System.out.println("Ligar para o candidato com uma contra proposta.");
         //Caso pretenção seja maior que o salário base.
         }else System.out.println("Aguardando o resultado dos demais candidatos.");
-
     }
 }
