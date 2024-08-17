@@ -2,14 +2,9 @@ package pilares.poo.mensenger;
 
 public abstract class ServicoMensagemInstatanea {
 
-    public void enviarMensagem() {
-        validarConectadoInternet();
-        System.out.println("Enviando mensagem.");
-        salvarHistoricoMensagem();
-    }
-    public void receberMensagem() {
-        System.out.println("Recebendo mensagem.");
-    }
+    public abstract void enviarMensagem();
+    public abstract void receberMensagem();
+
     private void validarConectadoInternet() {
         System.out.println("Validando conexão de internet.");
     }

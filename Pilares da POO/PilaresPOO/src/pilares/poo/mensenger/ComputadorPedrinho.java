@@ -10,7 +10,6 @@ public class ComputadorPedrinho{
         Telegran tlg = new Telegran();
 
         //Chamada de método.
-
         msn.enviarMensagem();
         msn.receberMensagem();
         fcb.enviarMensagem();
