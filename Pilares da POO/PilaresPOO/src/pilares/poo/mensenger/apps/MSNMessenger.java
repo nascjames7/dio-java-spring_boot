@@ -1,9 +1,10 @@
-package pilares.poo.mensenger;
+package pilares.poo.mensenger.apps;
 
-public class MSNMessenger extends ServicoMensagemInstatanea{
+public class MSNMessenger extends ServicoMensagemInstatanea {
 
     @Override
     public void enviarMensagem() {
+        validarConectadoInternet();
         System.out.println("Enviando mensagem pelo MSNMessenger.");
     }
     @Override

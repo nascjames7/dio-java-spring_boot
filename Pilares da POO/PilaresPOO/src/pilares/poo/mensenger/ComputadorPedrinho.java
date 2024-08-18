@@ -1,5 +1,10 @@
 package pilares.poo.mensenger;
 
+import pilares.poo.mensenger.apps.FacebookMessenger;
+import pilares.poo.mensenger.apps.MSNMessenger;
+import pilares.poo.mensenger.apps.ServicoMensagemInstatanea;
+import pilares.poo.mensenger.apps.Telegram;
+
 public class ComputadorPedrinho{
 
     public static void main(String[] args) {
