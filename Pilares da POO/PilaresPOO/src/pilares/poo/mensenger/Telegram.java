@@ -1,6 +1,6 @@
 package pilares.poo.mensenger;
 
-public class Telegran extends ServicoMensagemInstatanea{
+public class Telegram extends ServicoMensagemInstatanea{
     @Override
     public void enviarMensagem() {
         System.out.println("Enviando mensagem pelo Telegran.");
