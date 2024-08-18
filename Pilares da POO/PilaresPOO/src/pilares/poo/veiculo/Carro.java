@@ -1,7 +1,7 @@
-package pilares.poo;
+package pilares.poo.veiculo;
 
 //Utilização de herança.
-public class Carro extends Veiculo{
+public class Carro extends Veiculo {
 
 
     //Métodos diversos.

@@ -1,4 +1,4 @@
-package pilares.poo;
+package pilares.poo.veiculo;
 
 public class Autodromo {
 
