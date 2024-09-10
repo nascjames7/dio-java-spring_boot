@@ -49,4 +49,26 @@ public class ListaTarefa {
         //Imprime a lista.
         System.out.println(tarefaList);
     }
+
+    //Método que testa as impementações realizadas.
+    public static void main(String[] args) {
+
+        //Instanciação.
+        ListaTarefa listaTarefa = new ListaTarefa();
+        //Impressao do numero total de tarefas.
+        System.out.println("O número total de elementos da lista é: " + listaTarefa.obterNumeroTotalTarefas());
+        //Adicionando tarefa a lista vazia.
+        listaTarefa.adicionarTarefa("Tarefa01");
+        System.out.println("O número total de elementos da lista é: " + listaTarefa.obterNumeroTotalTarefas());
+        listaTarefa.adicionarTarefa("Tarefa01");
+        System.out.println("O número total de elementos da lista é: " + listaTarefa.obterNumeroTotalTarefas());
+        listaTarefa.adicionarTarefa("Tarefa02");
+        System.out.println("O número total de elementos da lista é: " + listaTarefa.obterNumeroTotalTarefas());
+        //Remoção da Tarefa01.
+        //listaTarefa.removerTarefa("Tarefa01");
+        System.out.println("O número total de elementos da lista é: " + listaTarefa.obterNumeroTotalTarefas());
+        //Obtenção da lista de descrições.
+        listaTarefa.obterDescricaoTarefas();
+
+    }
 }
