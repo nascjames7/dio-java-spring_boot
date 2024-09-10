@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Collection Framework API.iml" filepath="$PROJECT_DIR$/.idea/Collection Framework API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/collection-java-api-2024/collection-java-api-2024.iml" filepath="$PROJECT_DIR$/collection-java-api-2024/collection-java-api-2024.iml" />
+      <module fileurl="file://$PROJECT_DIR$/collections-java-api-2023/collections-java-api-2023.iml" filepath="$PROJECT_DIR$/collections-java-api-2023/collections-java-api-2023.iml" />
+    </modules>
+  </component>
+</project>
