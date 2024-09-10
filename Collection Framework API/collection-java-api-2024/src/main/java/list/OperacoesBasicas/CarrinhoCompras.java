@@ -37,14 +37,19 @@ public class CarrinhoCompras {
         itemList.removeAll(itensParaRemover);
     }
 
-    //Método que retorna o número total de itens.
-    public int obterNumeroTotalItens() {
-        //Retorna o tamanho da lista.
-        return itemList.size();
+    //Método que retorna o valor total de itens do carrinho de compras.
+    public double calcularValorTotal() {
+        //Declaração da variável valorTotal.
+        double valorTotal = 0.0;
+        //Implementação do laço para o cálculo do valor total.
+        for(Item item: itemList) {
+            valorTotal += (item.getPreco()*item.getQuantidade());
+        }
+        return valorTotal;
     }
 
     //Método que imprime a lista de itens a qualquer momento.
-    public void obterDescricaoItens() {
+    public void exibirItens() {
         //Imprime a lista.
         System.out.println(itemList);
     }
@@ -55,19 +60,19 @@ public class CarrinhoCompras {
         //Instanciação.
         CarrinhoCompras carrinhoCompras = new CarrinhoCompras();
         //Impressao do numero total de tarefas.
-        System.out.println("O número total de elementos da lista é: " + carrinhoCompras.obterNumeroTotalItens());
+        System.out.println("O valor total de elementos da lista é: " + carrinhoCompras.calcularValorTotal());
         //Adicionando tarefa a lista vazia.
         carrinhoCompras.adicionarItem("calculadora", 56.75, 10);
-        System.out.println("O número total de elementos da lista é: " + carrinhoCompras.obterNumeroTotalItens());
+        System.out.println("O valor total de elementos da lista é: " + carrinhoCompras.calcularValorTotal());
         carrinhoCompras.adicionarItem("computador", 4556.75, 20);
-        System.out.println("O número total de elementos da lista é: " + carrinhoCompras.obterNumeroTotalItens());
+        System.out.println("O valor total de elementos da lista é: " + carrinhoCompras.calcularValorTotal());
         carrinhoCompras.adicionarItem("carro", 56000.75, 25);
-        System.out.println("O número total de elementos da lista é: " + carrinhoCompras.obterNumeroTotalItens());
+        System.out.println("O valor total de elementos da lista é: " + carrinhoCompras.calcularValorTotal());
         //Remoção da Item02.
         carrinhoCompras.removerItem("computador", 4556.75, 20);
-        System.out.println("O número total de elementos da lista é: " + carrinhoCompras.obterNumeroTotalItens());
+        System.out.println("O valor total de elementos da lista é: " + carrinhoCompras.calcularValorTotal());
         //Obtenção da lista de descrições.
-        carrinhoCompras.obterDescricaoItens();
+        carrinhoCompras.exibirItens();
 
     }
 }
