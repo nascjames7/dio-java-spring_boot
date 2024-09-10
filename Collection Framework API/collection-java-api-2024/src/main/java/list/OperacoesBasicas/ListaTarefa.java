@@ -27,7 +27,7 @@ public class ListaTarefa {
         //Implementação do laço para detectar a tarefa a ser removida.
         for(Tarefa tarefa : tarefaList) {
 
-            //Implementação da estrtura condicional para verficação da tarefa procurada.
+            //Implementação da estrutura condicional para verficação da tarefa procurada.
             if(tarefa.getDescricao().equalsIgnoreCase(descricao)) {
 
                 //Adicão da tarefa a ser removida para a lista tarefasParaRemover.
