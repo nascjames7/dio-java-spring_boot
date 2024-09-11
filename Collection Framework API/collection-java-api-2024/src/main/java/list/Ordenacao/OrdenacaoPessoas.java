@@ -1,34 +1,39 @@
 package main.java.list.Ordenacao;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class OrdenacaoPessoas {
-    private String nome;
-    private int idade;
-    private double altura;
+    private List<Pessoa> pessoaList;
 
-    public OrdenacaoPessoas(String nome, int idade, double altura) {
-        this.nome = nome;
-        this.idade = idade;
-        this.altura = altura;
+    public OrdenacaoPessoas() {
+        this.pessoaList = new ArrayList<>();
     }
 
-    public String getNome() {
-        return nome;
+    //Método que adiciona pessoa.
+    public void adicionarPessoa(String nome, int idade, double altura) {
+        pessoaList.add(new Pessoa(nome, idade, altura));
     }
 
-    public int getIdade() {
-        return idade;
+    //Método que ordena por idade.
+    public List<Pessoa> ordenarPorIdade(int idade) {
+
+        //Instanciação da lista.
+        //Duplica a lista para que seja ordenada.
+        List<Pessoa> pessoaPorIdade = new ArrayList<>(pessoaList);
+
+        //Chamada do método de ordenação: Collections.sort
+        Collections.sort(pessoaPorIdade);
+        return pessoaPorIdade;
     }
 
-    public double getAltura() {
-        return altura;
+    public List<Pessoa> ordenarPorAltura() {
+        //Instanciação da lista.
+        //Duplica a lista para que seja ordenada.
+        List<Pessoa> pessoaPorAltura = new ArrayList<>(pessoaList);
+        Collections.sort(pessoaPorAltura, new ComparatorPorAltura());
+        return pessoaPorAltura;
     }
 
-    @Override
-    public String toString() {
-        return "OrdenacaoPessoas{" +
-                "nome='" + nome + '\'' +
-                ", idade=" + idade +
-                ", altura=" + altura +
-                '}';
-    }
 }
