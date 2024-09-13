@@ -35,5 +35,10 @@ public class OrdenacaoPessoas {
         Collections.sort(pessoaPorAltura, new ComparatorPorAltura());
         return pessoaPorAltura;
     }
+    //Método principal para testes.
+
+
+
+
 
 }
