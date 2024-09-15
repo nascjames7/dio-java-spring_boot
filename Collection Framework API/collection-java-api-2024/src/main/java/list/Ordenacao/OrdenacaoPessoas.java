@@ -57,7 +57,4 @@ public class OrdenacaoPessoas {
         System.out.println(op.ordenarPorIdade());
     }
 
-
-
-
 }
