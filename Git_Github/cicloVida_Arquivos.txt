@@ -1,0 +1,12 @@
+Ciclo de Vida dos Arquivos
+
+
+1.Untracked - arquivos não visualizados pelo git.
+
+2.Unmodified - arquivos que ainda não sofreram modifcação.
+
+3.Modified - arquivos que sofreram modifcação.
+
+4.Staged - arquivo preparado para ser comitado.
+
+5.Commit - (um snapshot do arquivo - volta para unmodified)

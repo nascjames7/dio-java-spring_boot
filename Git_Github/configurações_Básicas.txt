@@ -1,0 +1,82 @@
+Confirações Básicas
+
+//Configura  o e-mail:
+
+1.E-mail: git config --global user.email "james.nascimento@ufrpe.br"
+
+//Configura  o nome de usuário:
+
+2.Nome: git config --global user.name "James"
+
+//Configura  o editor de texto Visual Studio Code:
+
+3.Editor de texto: git config --global core.editor 'code --wait'
+
+//Verifica se tudo está configurado corretamente:
+
+4.Verificação de configurações: git config --global -e
+
+5.Verifica apenas o nome de usuário: git config user.name
+
+6.Verificação apenas o e-mail: git config user.email
+
+7.Verificação todas as configurações: git config --list
+
+//Criar pastas:
+
+8.Criar pasta de projeto: mkdir [nome_da_pasta]
+
+//Entrar em uma pasta:
+
+9.Entrar numa pasta: dir [nome_da_pasta]
+
+//Iniciar versionamento:
+
+10.Iniciar versionamento com git dentro da pasta do projeto: git init
+
+//Trabalhar na pasta .git
+
+11.Encontrar o arquivo .git que foi criado com o git init: ls -la
+
+12.Entrar no arquivo .git que foi criado com o git init: cd .git/
+
+13.Listar os documentos dentro do arquivo .git: ls
+
+14.Sair da pasta de arquivo .git: cd..
+
+//usando o editor no terminal:
+
+15.Editando o projeto a partir do terminal: [nome do editor] Readme.md
+
+16.Para entrar no modo de inserção de texo: insert
+
+17.Para sair do modo de inserção após digitar: apertar esc
+
+18.Iniciar algum comando: clicar em dois pontos
+
+wq -> escrever/salvar/sair
+apertar enter -> sai do modo de edição
+ls -> mostra o arquivo Readme.md
+
+19.Para editar novamente, voltar para o passo 15.
+
+20.Ciclo de vida dos estados dos arquivos:
+
+ Untracked (nao marcado) -> foi adicionado ao repositório, mas não foi reconhecido pelo git
+ Unmodifield -> adicionado e já é reconhecido pelo git
+ Modifield -> arquivo modificado
+ Staged -> arquivo é colocado na área de versionamneto
+
+Após o commit, volta ara o estado unmodifield.
+
+21.Reporta o estado do repositório: git status
+
+22.Editando o projeto a partir do terminal: [nome do editor] Readme.md
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+Enviar Novos Arquivos/Pastas para o GitHub
+
+1.Criar arquivos/pastas no repositório local logo após o comando git init. 
+
+git pull origin master(main): baixar arquivo do repositorio remoto em caso de conflito.
+git remove -v: mostrar endereços do repositório remoto.
+Ctrl L: limpar tela
+
+Flag que mostra arquivo ocultos: (ls -a), como .git (pasta gerencial do git)
+
+2.Comando git status (mostra os estados dos arquivos)
+3.Comando git add . ou git add -A ou git add *(para adicionar todos os arquivos)
+4.Comando git status
+5.Comando git commit -m "<mensagem explicativa/comentários>" (adiciona modificações no repositório local)
+6.Comando git status
+7.Comando git push origin main (envia as modificações para o repositório remoto)

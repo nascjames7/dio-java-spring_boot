@@ -1,0 +1,19 @@
+1.Criação de um Novo Repositório no GitHub
+
+1.1 Na conta do github, criar um novo repositório.
+1.2 Nomear.
+1.3 Deixar uma descrição.
+1.4 Adicionar um README.md (Markdwon - linguagem de marcação/formatação)
+1.5 Realizar as formatações adequadas e fazer o commit para mantê-las no repositório remoto.
+
+
+2.Clonagem de Novo Repositório no GitHub no Noteook
+
+2.1 Na conta do github, criar um novo repositório.
+2.2 Nomear.
+2.3 Deixar uma descrição.
+2.4 Adicionar um README.md (Markdwon - linguagem de marcação/formatação)
+2.5 Realizar as formatações adequadas e fazer o commit para mantê-las no repositório remoto.
+
+
+

@@ -1,0 +1,19 @@
+Comandos Básicos no Prompt
+
+1.Listar arquivos: dir (enter)
+
+2. Ir para a pasta C: cd / (enter)
+
+3.Limpar tela:  (enter)
+
+4.Mover um arquivo para uma determinada pasta: mv <nome do documento> /<nome da pasta> (enter)
+
+5.Ir para uma pasta mais externa: cd ..(enter)
+
+6.Ir para uma pasta dentro do diretorio atual: cd (nome da pasta/primeiras letras (Tab))(enter)
+
+7. Criar uma pasta: mkdir <nome da pasta>(enter)
+
+8. Remover os arquivos dentro de uma pasta: del <nome da pasta>(enter)
+
+9. Remover os arquivos dentro e a pasta de uma pasta: rmdir <nome da pasta>(enter)

@@ -1,0 +1,24 @@
+ 
+1.Blobs/Bolhas
+
+(contém metadados: <tipo de arquivo> <tamanho da String>\0<conteudo>)
+(contém metadados: 'blob 9\0conteudo'
+
+Para obter o SHA-1 (chave de encriptação composta por uma String de 40 caracteres) de determina do conteudo, usamos o seguinte comando:
+
+Usando a função git hash:
+
+echo 'conteudo' | git hash-object --stdin
+
+Outra possibilidade usando openssl:
+
+echo -e 'blob 9\0conteudo' | openssl sha1
+
+
+2.Trees/Árvores (armazenam blobs)
+
+As árvores apontam para outras árvores ou bolhas.
+
+3.Commits (armazenam árvores)
+
+Pode apontar para uma árvore, para um outro commit (o anterior), para um autor, e quando foi realizado este commit.

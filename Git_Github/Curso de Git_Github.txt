@@ -1,0 +1,152 @@
+Confirações Básicas
+
+//Configura  o e-mail:
+
+1.E-mail: git config --global user.email "james.nascimento@ufrpe.br"
+
+//Configura  o nome de usuário:
+
+2.Nome: git config --global user.name "James"
+
+//Configura  o editor de texto Visual Studio Code:
+
+3.Editor de texto: git config --global core.editor 'code --wait'
+
+//Verifica se tudo está configurado corretamente:
+
+4.Verificação de configurações: git config --global -e
+
+5.Verifica apenas o nome de usuário: git config user.name
+
+6.Verificação apenas o e-mail: git config user.email
+
+7.Verificação todas as configurações: git config --list
+
+//Criar pastas:
+
+8.Criar pasta de projeto: mkdir [nome_da_pasta]
+
+//Entrar em uma pasta:
+
+9.Entrar numa pasta: dir [nome_da_pasta]
+
+//Iniciar versionamento:
+
+10.Iniciar versionamento com git dentro da pasta do projeto: git init
+
+//Trabalhar na pasta .git
+
+11.Encontrar o arquivo .git que foi criado com o git init: ls -la
+
+12.Entrar no arquivo .git que foi criado com o git init: cd .git/
+
+13.Listar os documentos dentro do arquivo .git: ls
+
+14.Sair da pasta de arquivo .git: cd..
+
+//usando o editor no terminal:
+
+15.Editando o projeto a partir do terminal: [nome do editor] Readme.md
+
+16.Para entrar no modo de inserção de texo: insert
+
+17.Para sair do modo de inserção após digitar: apertar esc
+
+18.Iniciar algum comando: clicar em dois pontos
+
+wq -> escrever/salvar/sair
+apertar enter -> sai do modo de edição
+ls -> mostra o arquivo Readme.md
+
+19.Para editar novamente, voltar para o passo 15.
+
+20.Ciclo de vida dos estados dos arquivos:
+
+ Untracked (nao marcado) -> foi adicionado ao repositório, mas não foi reconhecido pelo git
+ Unmodifield -> adicionado e já é reconhecido pelo git
+ Modifield -> arquivo modificado
+ Staged -> arquivo é colocado na área de versionamneto
+
+Após o commit, volta ara o estado unmodifield.
+
+21.Reporta o estado do repositório: git status
+
+22.Visualizar o histórico de commits: git log
+
+23.Visualizar o branchs e merges: git log --decorate
+
+24.Visualiza os commits de determinado autor: git log --author="[nome_do_autor]"
+
+25.Visualizar em ordem alfabética os autores e quantos commits fizeram: git shortlog/git shortlog --sn
+
+26.Visualizar o que acontece com os branchs: git shortlog --graf
+
+27.Visualizar o que foi adicionado através de um hash: git show [hash]
+
+28.Visulaizar modificações antes de comitar: git diff
+
+29.Visualizar apenas os arquivos modificados: git diff --name-only
+
+30.Resetar erros/retorna o arquivo para antes da edição: git checkout [nome_do_arquivo]
+
+31.Remover arquivo modificado do staged para acrecentar modificações ou corrigir: git reset HEAD [nome_do_arquivo]
+
+32.Permitir que um arquivo modificado e comitado retorne continue pronto para comitar num determinado estado 
+diferente retirando um ou mais comitts: git reset --soft [hash para qual desejo retornar] -> retorna para staged
+
+33.Permitir que um arquivo modificado e comitado retorne continue pronto para ir para staged num determinado estado 
+diferente retirando um ou mais comitts: git reset --mixed [hash para qual desejo retornar] -> retorna para modifield
+
+34.Permitir que um arquivo modificado e comitado retorne continue pronto para ir para modifield num determinado estado 
+diferente retirando um ou mais comitts: git reset --hard [hash para qual desejo retornar] -> retorna para unmodifield//usar em extrema necessidade porque modifica o histórico.
+
+35.Chave SSH
+
+//Localizar/gerar chave SSH: 
+
+1.cd ~/.ssh/
+2.ls
+3.cat id_rsa.pub
+4.more id_rsa.pub
+
+//Gerar chave SSH
+
+1.ssh-keygen -t ed25519 -C james.nascimento@ufrpe.br
+2.enter
+3.digitar senha
+4.repetir senha
+
+Ir para a pasta ond esta a chave SSH.
+
+5.cd /c/Users/james/.ssh/
+6.ls (lista as chaves publica e privada)
+
+Mostra a chave publica para usarmos no github.
+
+7.cat id_ed25519.pub
+
+Mostra o caminho para as chaves.
+
+8.pwd
+
+Inicializar o SSH-agent (entidade responsável por lidar com as chaves).
+
+9.eval $(ssh-agent -s)
+10.ssh-add id_ed25519
+11.enter
+12.digitar a senha
+
+Validação de todo o processo de geração das chaves SSH.
+
+esc : wq -> para sair
+
+36.Clonar arquivos do repositório remoto: git clone [endereço web] (nome da pasta - opcional)
+
+37.Enviar modificações do repositorio local para o remoto: 
+
+Com o git Bash aberto dentro da pasta do repositorio local, realizar os seguintes comandos:
+
+- git remote add origin[endereço do repositorio remoto][enter]
+- git remote -v (lista os repositorios remotos cadastrados) - opcional
+- git status (verificar a situação no repositorio remoto) - opcional
+- git push origin master[enter] (empurrar o conteudo atualizado do repositorio local para o repositorio remoto)
