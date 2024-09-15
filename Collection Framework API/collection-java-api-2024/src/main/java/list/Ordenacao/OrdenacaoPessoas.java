@@ -32,11 +32,14 @@ public class OrdenacaoPessoas {
         //Instanciação da lista.
         //Duplica a lista para que seja ordenada.
         List<Pessoa> pessoaPorAltura = new ArrayList<>(pessoaList);
+        //A coleção (lista de pesoas) sera ordenada por altura pela Comparator.
         Collections.sort(pessoaPorAltura, new ComparatorPorAltura());
         return pessoaPorAltura;
     }
     //Método principal para testes.
-
+    public static void main(String[] args) {
+        //Instanciação da classe OrdenacaoPessoa.
+    }
 
 
 

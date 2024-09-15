@@ -1,5 +1,7 @@
 package main.java.list.Ordenacao;
 
+import java.util.Comparator;
+
 public class Pessoa implements Comparable<Pessoa> {
     private String nome;
     private int idade;
@@ -33,8 +35,21 @@ public class Pessoa implements Comparable<Pessoa> {
     }
 
 
+    //Método da interface Comparable qu compara as idades.
     @Override
     public int compareTo(Pessoa p) {
-        return 0;
+        return Integer.compare(idade, p.getIdade());
     }
 }
+
+//Implementação da Classe ComparatorPorAltura
+class ComparatorPorAltura implements Comparator<Pessoa> {
+    @Override
+    //Chamada do método que compara a altura de 2 pessoas.
+    public int compare(Pessoa p1, Pessoa p2) {
+        return Double.compare(p1.getAltura(), p2.getAltura());
+    }
+}
+
+
+
