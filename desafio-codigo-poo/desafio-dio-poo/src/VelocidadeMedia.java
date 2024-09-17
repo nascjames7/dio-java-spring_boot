@@ -1,17 +1,54 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+/**
+ * Você foi contratado para desenvolver um sistema que calcule a velocidade média de conexão de internet de um
+ * cliente durante um período. O sistema deve ler os registros recebidos como entrada, processar os dados e
+ * calcular a velocidade média de conexão em megabits por segundo (Mbps) ao longo do turno.
+ *
+ * Entrada
+ * A entrada é uma string contendo uma lista de valores representando a velocidade de conexão em megabits
+ * por segundo (Mbps), separados por vírgulas.
+ *
+ * Saída
+ * A saída do programa deve ser a velocidade média de conexão em Mbps.
+ * O sistema deve somar todos os valores da lista de entrada, calcular a média dividindo o total pelo número de
+ * registros, e exibir o resultado.
+ */
+
+import java.util.Scanner;
+
 public class VelocidadeMedia {
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+    // Função para calcular a velocidade média de conexão de internet
+    public static double calcularVelocidadeMedia(String[] velocidades) {
+        //Declaração da variável total.
+        int total = 0;
+        int soma = 0;
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        //Realiza a soma ds velocidades registradas.
+        for(int contador = 0; contador < velocidades.length; contador++) {
+            //Conversão das Strings em inteiros.
+            soma += Integer.parseInt(velocidades[contador]);
         }
+        //Cálculo da mádia.
+        total = (soma/velocidades.length);
+
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitando ao usuário a lista de velocidades de conexão registradas a cada hora
+        String input = scanner.nextLine();
+
+        // Convertendo a entrada em uma lista de strings
+        String[] velocidades = input.split(",");
+
+        // Calculando a velocidade média de conexão
+        double velocidadeMedia = calcularVelocidadeMedia(velocidades);
+
+        // Exibindo a velocidade média de conexão
+        System.out.println((int)velocidadeMedia + " Mbps");
+
+        scanner.close();
     }
 }
