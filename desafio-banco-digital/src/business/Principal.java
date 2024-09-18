@@ -1,15 +1,14 @@
 package business;
 
-import business.beans.Cliente;
-import business.beans.Conta;
-import business.beans.ContaCorrente;
-import business.beans.ContaPoupanca;
+import business.beans.*;
 
 public class Principal{
     public static void main(String[]args){
 
         //Instanciação dos objeto dos tipos business.beans.Cliente, business.beans.ContaCorrente e ContaPoupanca usando Polimorfismo.
         Cliente james = new Cliente();
+        Cliente pedro = new Cliente();
+
         Conta cc = new ContaCorrente(7500, james);
         Conta poupanca = new ContaPoupanca(1500, james);
 
@@ -27,5 +26,15 @@ public class Principal{
         //Chamada de método imprimirExtrato.
         ((ContaCorrente)cc).imprimirExtrato(james);
         ((ContaPoupanca)poupanca).imprimirExtrato(james);
+
+        //Testando as funcionalidades da classe ContaEspecial.
+        Conta special = new ContaEspecial(5000, pedro);
+        special.depositar(2500.0);
+        special.sacar(900.0);
+        ((ContaEspecial) special).aumentarLimite(1500.0);
+        special.sacar(3000.0);
+        ((ContaEspecial) special).calcularJuros();
+        System.out.println(special.getSaldo());
+
         }
 }

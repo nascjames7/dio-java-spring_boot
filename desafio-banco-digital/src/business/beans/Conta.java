@@ -47,7 +47,7 @@ public abstract class Conta implements IConta {
     public void depositar(double valor) {
         this.saldo += valor;
         System.out.println("Crédito realizado na conta " + this.numero
-                + " , no valor de: " + valor + " reais.");
+                + ", no valor de: " + valor + " reais.");
     }
 
     @Override
