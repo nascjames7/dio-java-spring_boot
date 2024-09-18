@@ -3,13 +3,13 @@ package business.beans;
 import business.beans.Conta;
 
 public class ContaCorrente extends Conta {
-    public ContaCorrente(Cliente cliente) {
-        super(cliente);
+    public ContaCorrente(double saldoInicial, Cliente cliente) {
+        super(saldoInicial, cliente);
     }
 
-    public void imprimirExtrato() {
+    public void imprimirExtrato(Cliente titular) {
         System.out.println("Extrato conta corrente: ");
-        super.imprimirInfoComuns();
+        super.imprimirInfoComuns(titular);
     }
 
 
