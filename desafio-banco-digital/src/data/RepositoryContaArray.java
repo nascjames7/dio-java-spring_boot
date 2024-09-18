@@ -30,17 +30,23 @@ public class RepositoryContaArray implements IRepositoryConta{
          */
         if (this.proxima == this.contas.length) {
             //Chamada de método que duplica o tamanho do Array.
-            this.duplicaArrayContas();
+            this.duplicarArrayContas();
         }
         System.out.println("LOG: Nova conta cadastrada de número: " + conta.getNumero());
     }
 
-    private void duplicaArrayContas() {
+    //Método que dupplica o tamanho do Array ao encontrar sua posição final.
+    private void duplicarArrayContas() {
+        //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.contas != null && this.contas.length > 0) {
+            //Instanciação do Array com tamanho duplicado.
             Conta[] arrayDuplicado = new Conta[this.contas.length * 2];
-            for (int i = 0; i < this.contas.length; i++) {
-                arrayDuplicado[i] = this.contas[i];
+            //Implementação do laço para realocar os dados do Array anterior para o novo array duplicado.
+            for (int contador = 0; contador < this.contas.length; contador++) {
+                //Realocação do array menor para o maior.
+                arrayDuplicado[contador] = this.contas[contador];
             }
+            //Atribuição do nome do Array anterior ao novo Array.
             this.contas = arrayDuplicado;
         }
     }
