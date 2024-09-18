@@ -1,3 +1,7 @@
+package business.beans;
+
+import business.beans.Conta;
+
 public class ContaPopanca extends Conta {
     public ContaPopanca(Cliente cliente) {
         super(cliente);

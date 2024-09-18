@@ -1,7 +1,12 @@
- public class Principal{
+import business.beans.Cliente;
+import business.beans.Conta;
+import business.beans.ContaCorrente;
+import business.beans.ContaPopanca;
+
+public class Principal{
     public static void main(String[]args){
 
-        //Instanciação dos objeto dos tipos Cliente, ContaCorrente e ContaPoupanca usando Polimorfismo.
+        //Instanciação dos objeto dos tipos business.beans.Cliente, business.beans.ContaCorrente e ContaPoupanca usando Polimorfismo.
         Cliente james = new Cliente();
         Conta cc = new ContaCorrente(james);
         Conta poupanca = new ContaPopanca(james);

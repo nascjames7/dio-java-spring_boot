@@ -1,5 +1,8 @@
-public abstract class Conta implements IConta{
+package business.beans;
 
+public abstract class Conta implements IConta {
+
+    //Toda instância de conta receberá como agência a agência padrão.
     private static final int AGENCIA_PADRAO = 1;
     public static int SEQUENCIAL = 1;
 
@@ -28,12 +31,15 @@ public abstract class Conta implements IConta{
 
     @Override
     public void sacar(double valor) {
-        saldo -= valor;
+        //Implementação da estrutura condicional para permissão de operação de saque.
+        if(this.saldo - valor >= 0) {
+            this.saldo -= valor;
+        } else System.out.println("Saldo insuficiente para este valor de saque. O valor máximo disponível para esta operação é: " +this.saldo + "reais.");
     }
 
     @Override
     public void depositar(double valor) {
-        saldo += valor;
+        this.saldo += valor;
     }
 
     @Override
@@ -44,13 +50,13 @@ public abstract class Conta implements IConta{
 
     public void imprimirInfoComuns() {
         System.out.println(String.format("Agência: %d", this.agencia));
-        System.out.println(String.format("Conta: %d", this.numero));
+        System.out.println(String.format("business.beans.Conta: %d", this.numero));
         System.out.println(String.format("Saldo: %.2f", this.saldo));
     }
 
     @Override
     public String toString() {
-        return "Conta{" +
+        return "business.beans.Conta{" +
                 "agencia=" + agencia +
                 ", numero=" + numero +
                 ", saldo=" + saldo +

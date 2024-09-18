@@ -1,3 +1,7 @@
+package business.beans;
+
+import business.beans.Conta;
+
 public interface IConta{
 
     public void sacar(double valor);

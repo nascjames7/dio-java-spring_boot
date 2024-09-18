@@ -1,4 +1,7 @@
-public class Banco {
+package business.beans;
+
+public class Cliente {
+
     private String nome;
 
     public String getNome() {
