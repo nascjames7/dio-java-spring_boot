@@ -2,6 +2,8 @@ package data;
 
 import business.beans.Cliente;
 import business.beans.Conta;
+import business.beans.ContaPoupanca;
+;
 
 public class RepositoryContaArray implements IRepositoryConta{
 
@@ -119,7 +121,7 @@ public class RepositoryContaArray implements IRepositoryConta{
      */
     @Override
     public void remover(String numero) {
-        //Definição da variável.
+        //Definição da variável e chamada do método procurarIndice(numero).
         int indice = this.procurarIndice(numero);
         //Implementação de estrutura condicional para verificar a conta procurada.
         if (indice != this.proxima) {
@@ -136,7 +138,12 @@ public class RepositoryContaArray implements IRepositoryConta{
     }
 
     @Override
-    public void renderJuros(String num) {
-
+    public void renderJuros(String numero, int tempo) {
+        //Atribuição de uma conta.
+        Conta conta = this.procurar(numero);
+        //Implementação de estrutura condicional de verificação.
+        if (conta instanceof ContaPoupanca) {
+            ((ContaPoupanca) conta).rendendoJuros(this.TAXA_JUROS, tempo);
+        }
     }
 }
