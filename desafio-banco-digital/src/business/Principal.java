@@ -9,8 +9,8 @@ public class Principal{
         Cliente james = new Cliente();
         Cliente pedro = new Cliente();
 
-        Conta cc = new ContaCorrente(7500, james);
-        Conta poupanca = new ContaPoupanca(1500, james);
+        Conta cc = new ContaCorrente("134-456",7500, james);
+        Conta poupanca = new ContaPoupanca("787-456",1500, james);
 
         //Chamada do método setNome.
         james.setNome("James Anderson");

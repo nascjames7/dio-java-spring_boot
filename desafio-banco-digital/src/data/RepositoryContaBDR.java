@@ -1,5 +1,6 @@
 package data;
 
+import business.beans.Cliente;
 import business.beans.Conta;
 
 public class RepositoryContaBDR implements IRepositoryConta{
@@ -9,7 +10,7 @@ public class RepositoryContaBDR implements IRepositoryConta{
     }
 
     @Override
-    public void cadastrar(String numero, double saldoInicial) {
+    public void cadastrar(String numero, double saldoInicial, Cliente cliente) {
 
     }
 

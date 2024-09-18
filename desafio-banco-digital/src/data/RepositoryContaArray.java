@@ -1,5 +1,6 @@
 package data;
 
+import business.beans.Cliente;
 import business.beans.Conta;
 
 public class RepositoryContaArray implements IRepositoryConta{
@@ -51,9 +52,19 @@ public class RepositoryContaArray implements IRepositoryConta{
         }
     }
 
+    /**
+     * Sobrecarga do método cadastrar.
+     * Cria o objeto da conta com o número e saldo inicial passados como
+     * parâmetro e cadastra a conta no array de contas. Sobreacrga do método cadastrar.
+     *
+     * @param numero Número da conta a ser criada e cadastrada
+     * @param saldoInicial Saldo inicial da conta a ser criada e cadastrada
+     */
     @Override
-    public void cadastrar(String numero, double saldoInicial) {
-
+    public void cadastrar(String numero, double saldoInicial, Cliente cliente) {
+        //Instanciação do objeto da classe Conta através dos parâmetros acima.
+        Conta conta = new Conta(numero, saldoInicial, cliente);
+        this.cadastrar(conta);
     }
 
     @Override

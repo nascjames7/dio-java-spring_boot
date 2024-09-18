@@ -2,8 +2,8 @@ package business.beans;
 
 public class ContaPoupanca extends Conta {
 
-    public ContaPoupanca(double saldoInicial, Cliente cliente) {
-        super(saldoInicial, cliente);
+    public ContaPoupanca(String numero, double saldoInicial, Cliente cliente) {
+        super(numero, saldoInicial, cliente);
     }
 
     public void rendendoJuros(double taxa, int tempoMeses) {

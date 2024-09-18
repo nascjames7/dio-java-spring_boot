@@ -1,19 +1,18 @@
 package business.beans;
 
-public abstract class Conta implements IConta {
+public class Conta implements IConta {
 
     //Toda instância de conta receberá como agência a agência padrão.
     private static final int AGENCIA_PADRAO = 1;
-    public static int SEQUENCIAL = 1;
 
     private int agencia;
-    private int numero;
+    private String numero;
     protected double saldo;
     protected Cliente cliente;
 
-    public Conta(double saldoInicial, Cliente cliente) {
+    public Conta(String numero, double saldoInicial, Cliente cliente) {
         this.agencia = Conta.AGENCIA_PADRAO; //Outra forma: this.agencia = agencia.
-        this.numero = SEQUENCIAL++;//Outra forma: this.numero = numero.
+        this.numero = numero;
         this.saldo = saldoInicial;
         this.cliente = cliente;
     }
@@ -22,7 +21,7 @@ public abstract class Conta implements IConta {
         return agencia;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
