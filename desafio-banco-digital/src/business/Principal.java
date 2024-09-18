@@ -21,8 +21,8 @@ public class Principal{
         poupanca.depositar(5000);
 
         //Chamada de método transferir.
-        cc.transferir(500, cc, poupanca);
-        poupanca.transferir(2500, poupanca, cc);
+        cc.transferir(500, poupanca);
+        poupanca.transferir(2500, cc);
 
         //Chamada de método imprimirExtrato.
         ((ContaCorrente)cc).imprimirExtrato(james);
