@@ -4,8 +4,8 @@ public class ContaEspecial extends Conta{
     private double valorLimite;
     private static final double TAXA_JUROS = 0.08;
 
-    public ContaEspecial(double saldoInicial, Cliente cliente) {
-        super(saldoInicial, cliente);
+    public ContaEspecial(String numero, double saldoInicial, Cliente cliente) {
+        super(numero, saldoInicial, cliente);
         //Definição do limite máximo.
         this.valorLimite = 10000.0;
     }

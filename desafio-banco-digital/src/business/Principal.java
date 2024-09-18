@@ -28,7 +28,7 @@ public class Principal{
         ((ContaPoupanca)poupanca).imprimirExtrato(james);
 
         //Testando as funcionalidades da classe ContaEspecial.
-        Conta special = new ContaEspecial(5000, pedro);
+        Conta special = new ContaEspecial("785-155", 5000, pedro);
         special.depositar(2500.0);
         special.sacar(900.0);
         ((ContaEspecial) special).aumentarLimite(1500.0);

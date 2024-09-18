@@ -67,9 +67,49 @@ public class RepositoryContaArray implements IRepositoryConta{
         this.cadastrar(conta);
     }
 
+    /**
+     * Método que encontra uma determinada conta com base em seu número.
+     *
+     * @param numero O nÚmero da conta a ser procurada
+     * @return A conta encontrada ou null se o número de conta passado com
+     *         parâmetro não existir
+     */
     @Override
-    public Conta procurar(String num) {
-        return null;
+    public Conta procurar(String numero) {
+
+        int indice = this.procurarIndice(numero);
+        Conta resultado = null;
+        if (indice != this.proxima) {
+            resultado = this.contas[indice];
+        }
+        return resultado;
+    }
+
+    /**
+     * M�todo auxiliar para procurar o índice de uma conta no array.
+     *
+     * @param numero Número da conta da qual deseja-se encontrar o índice no array
+     *        de contas
+     * @return Um inteiro correspondente ao índice da conta encontrada.
+     */
+    private int procurarIndice(String numero) {
+        //Definição da variável índice.
+        int indice = 0;
+        //Definição da varíavel booleana.
+        boolean achou = false;
+        //Implementação do laço para encontrar o indice referente ao número da conta.
+        while ((!achou) && (indice < this.proxima)) {
+            //Implementação da estrutura condicional que compara o numero das contas com o numero procurado.
+            if (numero.equals(this.contas[indice].getNumero())) {
+                //Alteração da variávei booleana achou.
+                achou = true;
+            } else {
+                //Incremento da varíavel índice.
+                indice++;
+            }
+        }
+        //Retorna o indice procurado.
+        return indice;
     }
 
     @Override
