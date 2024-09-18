@@ -39,6 +39,7 @@ public abstract class Conta implements IConta {
         //Implementação da estrutura condicional para permissão de operação de saque.
         if(this.saldo - valor >= 0) {
             this.saldo -= valor;
+            System.out.println("Crédito realizado na conta " + contaReceptora.getNumero() + " do cliente " + contaReceptora.getCliente().getNome() + ", no valor de: " + valor + "reais.");
             System.out.println("Operação de débito realizada com sucesso! Saldo disponível na conta " + contaDebitada + " : " + saldo + " reais.");
         } else System.out.println("Saldo insuficiente para este valor de saque. O valor máximo disponível para esta operação é: " +this.saldo + "reais.");
     }
@@ -46,6 +47,8 @@ public abstract class Conta implements IConta {
     @Override
     public void depositar(double valor) {
         this.saldo += valor;
+        System.out.println("Crédito realizado na conta " + this.numero
+                + " , no valor de: " + valor + " reais.");
     }
 
     @Override
@@ -67,7 +70,6 @@ public abstract class Conta implements IConta {
                 "agencia " + agencia +
                 ", numero " + numero +
                 ", saldo " + saldo + " reais " +
-                ", cliente " + cliente.getNome() +
-                ']';
+                ", cliente " + cliente.getNome() + "]";
     }
 }
