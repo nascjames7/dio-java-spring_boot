@@ -112,9 +112,27 @@ public class RepositoryContaArray implements IRepositoryConta{
         return indice;
     }
 
+    /**
+     * Removendo a conta cujo número foi passado como parâmetro
+     *
+     * @param numero Número da conta a ser removida.
+     */
     @Override
-    public void remover(String num) {
-
+    public void remover(String numero) {
+        //Definição da variável.
+        int indice = this.procurarIndice(numero);
+        //Implementação de estrutura condicional para verificar a conta procurada.
+        if (indice != this.proxima) {
+            //Alteração do valor da variável contas[].
+            this.contas[indice] = this.contas[this.proxima - 1];
+            //Esvazia a conta armazenada no local de indice: this.proxima - 1.
+            this.contas[this.proxima - 1] = null;
+            //Alteração do valor do índice.
+            this.proxima = this.proxima - 1;
+            System.out.println("LOG: Conta " + numero + " removida");
+        } else {
+            System.out.println("LOG: Conta com número " + numero + " não existe.");
+        }
     }
 
     @Override
