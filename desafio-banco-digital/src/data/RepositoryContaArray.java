@@ -38,7 +38,7 @@ public class RepositoryContaArray implements IRepositoryConta{
         System.out.println("LOG: Nova conta cadastrada de número: " + conta.getNumero());
     }
 
-    //Método que dupplica o tamanho do Array ao encontrar sua posição final.
+    //Método que duplica o tamanho do Array ao encontrar sua posição final.
     private void duplicarArrayContas() {
         //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.contas != null && this.contas.length > 0) {
@@ -78,17 +78,21 @@ public class RepositoryContaArray implements IRepositoryConta{
      */
     @Override
     public Conta procurar(String numero) {
-
+        //Definição da variável indice.
         int indice = this.procurarIndice(numero);
+        //Instanciação de uma conta nula (vazia).
         Conta resultado = null;
+        //Implementação da estrutura condicional que encontra a conta através do número.
         if (indice != this.proxima) {
+            //Define a conta procurada na variável resultado.
             resultado = this.contas[indice];
         }
+        //Retorna a conta procurada.
         return resultado;
     }
 
     /**
-     * M�todo auxiliar para procurar o índice de uma conta no array.
+     * Método auxiliar para procurar o índice de uma conta no array.
      *
      * @param numero Número da conta da qual deseja-se encontrar o índice no array
      *        de contas

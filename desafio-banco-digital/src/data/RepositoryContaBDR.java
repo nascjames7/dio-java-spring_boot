@@ -25,7 +25,7 @@ public class RepositoryContaBDR implements IRepositoryConta{
     }
 
     @Override
-    public void renderJuros(String num) {
+    public void renderJuros(String numero, int tempo) {
 
     }
 }
