@@ -1,14 +1,14 @@
 package data;
 
-import business.beans.Cliente;
-import business.beans.Conta;
+import business.beans.RegistroClientes;
+import business.beans.RegistroContas;
 import business.beans.ContaPoupanca;
 ;
 
 public class RepositoryContaArray implements IRepositoryConta{
 
     private static final double TAXA_JUROS = 0.75;
-    private Conta[] contas;
+    private RegistroContas[] contas;
     private int proxima;
     /**
      * Construtor público
@@ -16,13 +16,13 @@ public class RepositoryContaArray implements IRepositoryConta{
      */
     public RepositoryContaArray(int tamanho) {
         //Instancia uma conta de tamanho definido.
-        this.contas = new Conta[tamanho];
+        this.contas = new RegistroContas[tamanho];
         this.proxima = 0;
     }
 
     //Método que cadastra contas.
     @Override
-    public void cadastrar(Conta conta) {
+    public void cadastrar(RegistroContas conta) {
         //Adiona a conta no Array contas.
         this.contas[this.proxima] = conta;
         //Incremento da posição do Array para cadastrar a próxima conta.
@@ -43,7 +43,7 @@ public class RepositoryContaArray implements IRepositoryConta{
         //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.contas != null && this.contas.length > 0) {
             //Instanciação do Array com tamanho duplicado.
-            Conta[] arrayDuplicado = new Conta[this.contas.length * 2];
+            RegistroContas[] arrayDuplicado = new RegistroContas[this.contas.length * 2];
             //Implementação do laço para realocar os dados do Array anterior para o novo array duplicado.
             for (int contador = 0; contador < this.contas.length; contador++) {
                 //Realocação do array menor para o maior.
@@ -63,9 +63,9 @@ public class RepositoryContaArray implements IRepositoryConta{
      * @param saldoInicial Saldo inicial da conta a ser criada e cadastrada
      */
     @Override
-    public void cadastrar(String numero, double saldoInicial, Cliente cliente) {
+    public void cadastrar(String numero, double saldoInicial, RegistroClientes cliente) {
         //Instanciação do objeto da classe Conta através dos parâmetros acima.
-        Conta conta = new Conta(numero, saldoInicial, cliente);
+        RegistroContas conta = new RegistroContas(numero, saldoInicial, cliente);
         this.cadastrar(conta);
     }
 
@@ -77,11 +77,11 @@ public class RepositoryContaArray implements IRepositoryConta{
      *         parâmetro não existir
      */
     @Override
-    public Conta procurar(String numero) {
+    public RegistroContas procurar(String numero) {
         //Definição da variável indice.
         int indice = this.procurarIndice(numero);
         //Instanciação de uma conta nula (vazia).
-        Conta resultado = null;
+        RegistroContas resultado = null;
         //Implementação da estrutura condicional que encontra a conta através do número.
         if (indice != this.proxima) {
             //Define a conta procurada na variável resultado.
@@ -144,7 +144,7 @@ public class RepositoryContaArray implements IRepositoryConta{
     @Override
     public void renderJuros(String numero, int tempo) {
         //Atribuição de uma conta.
-        Conta conta = this.procurar(numero);
+        RegistroContas conta = this.procurar(numero);
         //Implementação de estrutura condicional de verificação.
         if (conta instanceof ContaPoupanca) {
             ((ContaPoupanca) conta).rendendoJuros(this.TAXA_JUROS, tempo);

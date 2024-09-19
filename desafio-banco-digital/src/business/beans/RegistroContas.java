@@ -1,6 +1,6 @@
 package business.beans;
 
-public class Conta implements IConta {
+public class RegistroContas implements IConta {
 
     //Toda instância de conta receberá como agência a agência padrão.
     private static final int AGENCIA_PADRAO = 1;
@@ -8,10 +8,10 @@ public class Conta implements IConta {
     private int agencia;
     private String numero;
     protected double saldo;
-    protected Cliente cliente;
+    protected RegistroClientes cliente;
 
-    public Conta(String numero, double saldoInicial, Cliente cliente) {
-        this.agencia = Conta.AGENCIA_PADRAO; //Outra forma: this.agencia = agencia.
+    public RegistroContas(String numero, double saldoInicial, RegistroClientes cliente) {
+        this.agencia = RegistroContas.AGENCIA_PADRAO; //Outra forma: this.agencia = agencia.
         this.numero = numero;
         this.saldo = saldoInicial;
         this.cliente = cliente;
@@ -29,7 +29,7 @@ public class Conta implements IConta {
         return saldo;
     }
 
-    public Cliente getCliente() {
+    public RegistroClientes getCliente() {
         return cliente;
     }
 
@@ -50,12 +50,12 @@ public class Conta implements IConta {
     }
 
     @Override
-    public void transferir(double valor, Conta contaDestino) {
+    public void transferir(double valor, RegistroContas contaDestino) {
         this.sacar(valor);
         contaDestino.depositar(valor);
     }
 
-    public void imprimirInfoComuns(Cliente titular) {
+    public void imprimirInfoComuns(RegistroClientes titular) {
         System.out.println(String.format("Agência: %d", this.agencia));
         System.out.println(String.format("numero: %s", this.numero));
         System.out.println(String.format("Saldo: %.2f", this.saldo));

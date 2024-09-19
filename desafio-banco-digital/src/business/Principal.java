@@ -6,11 +6,11 @@ public class Principal{
     public static void main(String[]args){
 
         //Instanciação dos objeto dos tipos business.beans.Cliente, business.beans.ContaCorrente e ContaPoupanca usando Polimorfismo.
-        Cliente james = new Cliente();
-        Cliente pedro = new Cliente();
+        RegistroClientes james = new RegistroClientes();
+        RegistroClientes pedro = new RegistroClientes();
 
-        Conta cc = new ContaCorrente("134-456",7500, james);
-        Conta poupanca = new ContaPoupanca("787-456",1500, james);
+        RegistroContas cc = new ContaCorrente("134-456",7500, james);
+        RegistroContas poupanca = new ContaPoupanca("787-456",1500, james);
 
         //Chamada do método setNome.
         james.setNome("James Anderson");
@@ -28,7 +28,7 @@ public class Principal{
         ((ContaPoupanca)poupanca).imprimirExtrato(james);
 
         //Testando as funcionalidades da classe ContaEspecial.
-        Conta special = new ContaEspecial("785-155", 5000, pedro);
+        RegistroContas special = new ContaEspecial("785-155", 5000, pedro);
         special.depositar(2500.0);
         special.sacar(900.0);
         ((ContaEspecial) special).aumentarLimite(1500.0);

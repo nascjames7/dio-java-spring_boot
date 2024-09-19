@@ -1,10 +1,10 @@
 package business.beans;
 
-public class ContaEspecial extends Conta{
+public class ContaEspecial extends RegistroContas {
     private double valorLimite;
     private static final double TAXA_JUROS = 0.08;
 
-    public ContaEspecial(String numero, double saldoInicial, Cliente cliente) {
+    public ContaEspecial(String numero, double saldoInicial, RegistroClientes cliente) {
         super(numero, saldoInicial, cliente);
         //Definição do limite máximo.
         this.valorLimite = 10000.0;

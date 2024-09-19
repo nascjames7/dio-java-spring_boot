@@ -1,21 +1,21 @@
 package business.beans;
 
-public class Cliente {
+public class RegistroClientes {
 
     private String nome;
     private String cpf;
-    private Cliente[] clientes;
+    private RegistroClientes[] clientes;
     private int proxima;
 
-    public Cliente(String nome, String cpf, int tamanho) {
+    public RegistroClientes(String nome, String cpf, int tamanho) {
         this.nome = nome;
         this.cpf = cpf;
-        this.clientes = new Cliente[tamanho];
+        this.clientes = new RegistroClientes[tamanho];
         this.proxima = 0;
     }
 
     //Método que cadastra clientes.
-    public void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(RegistroClientes cliente) {
         //Adiona um cliente no Array contas.
         this.clientes[this.proxima] = cliente;
         //Incremento da posição do Array para cadastrar a próxima conta.
@@ -36,7 +36,7 @@ public class Cliente {
         //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.clientes != null && this.clientes.length > 0) {
             //Instanciação do Array com tamanho duplicado.
-            Cliente[] arrayDuplicado = new Cliente[this.clientes.length * 2];
+            RegistroClientes[] arrayDuplicado = new RegistroClientes[this.clientes.length * 2];
             //Implementação do laço para realocar os dados do Array anterior para o novo array duplicado.
             for (int contador = 0; contador < this.clientes.length; contador++) {
                 //Realocação do array menor para o maior.

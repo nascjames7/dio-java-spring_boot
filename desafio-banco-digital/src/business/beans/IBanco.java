@@ -1,17 +1,21 @@
 package business.beans;
 
+import exceptions.ContaNaoExistenteException;
+import exceptions.ContaNaoPodeSerDuplicadaException;
+import exceptions.SaldoIncompativelException;
+
 public interface IBanco {
 
     void cadastrarCliente();
 
     void efetuarLogin();
 
-    void cadastrarConta(Conta conta) throws ContaJaExisteException;
+    void cadastrarConta(RegistroContas conta) throws ContaNaoPodeSerDuplicadaException;
 
-    void removerConta(String numero) throws ContaNaoExisteException;
+    void removerConta(String numero) throws ContaNaoExistenteException;
 
-    Conta procurarConta(String numero) throws ContaNaoExisteException;
+    RegistroContas procurarConta(String numero) throws ContaNaoExistenteException;
 
     void transferir(String numOrigem, String numDestino, double valor)
-            throws ContaNaoExisteException, SaldoInsuficienteException;
+            throws ContaNaoExistenteException, SaldoIncompativelException;
 }

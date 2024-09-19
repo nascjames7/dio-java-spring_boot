@@ -1,13 +1,13 @@
 package data;
 
-import business.beans.Cliente;
-import business.beans.Conta;
+import business.beans.RegistroClientes;
+import business.beans.RegistroContas;
 
 public interface IRepositoryConta {
 
-    void cadastrar(Conta conta);
-    void cadastrar(String numero, double saldoInicial, Cliente cliente);
-    Conta procurar(String numero);
+    void cadastrar(RegistroContas conta);
+    void cadastrar(String numero, double saldoInicial, RegistroClientes cliente);
+    RegistroContas procurar(String numero);
     void remover(String numero);
     void renderJuros(String numero, int tempo);
 }

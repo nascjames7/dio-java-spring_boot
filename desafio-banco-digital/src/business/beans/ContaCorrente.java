@@ -1,13 +1,11 @@
 package business.beans;
 
-import business.beans.Conta;
-
-public class ContaCorrente extends Conta {
-    public ContaCorrente(String numero, double saldoInicial, Cliente cliente) {
+public class ContaCorrente extends RegistroContas {
+    public ContaCorrente(String numero, double saldoInicial, RegistroClientes cliente) {
         super(numero, saldoInicial, cliente);
     }
 
-    public void imprimirExtrato(Cliente titular) {
+    public void imprimirExtrato(RegistroClientes titular) {
         System.out.println("Extrato conta corrente: ");
         super.imprimirInfoComuns(titular);
     }

@@ -1,17 +1,17 @@
 package business.beans;
 
-public class Administrador {
+public class RegistroAdministradores {
 
     private String login;
     private String senha;
-    private Administrador[] adms;
+    private RegistroAdministradores[] adms;
     private int proxima;
     private int tamanho = 10;
 
-    public Administrador(String login, String senha) {
+    public RegistroAdministradores(String login, String senha) {
         this.login = login;
         this.senha = senha;
-        this.adms = new Administrador[tamanho];
+        this.adms = new RegistroAdministradores[tamanho];
         this.proxima = 0;
     }
 
@@ -26,7 +26,7 @@ public class Administrador {
     // Método ilustrativo para cadastrar um novo usuário com login e senha.
     public void cadastrarNovoAdministrador(String login, String senha) {
         //Instanciação do objeto da classe Login através dos parâmetros acima.
-        Administrador lg = new Administrador(login, senha);
+        RegistroAdministradores lg = new RegistroAdministradores(login, senha);
         //Adiona a conta no Array logins.
         this.adms[this.proxima] = lg;
         //Incremento da posição do Array para cadastrar o próximo usuário.
@@ -47,7 +47,7 @@ public class Administrador {
         //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.adms != null && this.adms.length > 0) {
             //Instanciação do Array com tamanho duplicado.
-            Administrador[] arrayDuplicado = new Administrador[this.adms.length * 2];
+            RegistroAdministradores[] arrayDuplicado = new RegistroAdministradores[this.adms.length * 2];
             //Implementação do laço para realocar os dados do Array anterior para o novo array duplicado.
             for (int contador = 0; contador < this.adms.length; contador++) {
                 //Realocação do array menor para o maior.
@@ -65,11 +65,11 @@ public class Administrador {
      * @return A conta encontrada ou null se o número de conta passado com
      *         parâmetro não existir
      */
-    public Administrador procurar(String login) {
+    public RegistroAdministradores procurar(String login) {
         //Definição da variável indice.
         int indice = this.procurarIndiceAdministrador(login);
         //Instanciação de um usuário nulo (vazio).
-        Administrador resultado = null;
+        RegistroAdministradores resultado = null;
         //Implementação da estrutura condicional que encontra a conta através do número.
         if (indice != this.proxima) {
             //Define o usuário procurado na variável resultado.

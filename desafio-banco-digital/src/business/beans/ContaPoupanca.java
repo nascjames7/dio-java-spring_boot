@@ -1,8 +1,8 @@
 package business.beans;
 
-public class ContaPoupanca extends Conta {
+public class ContaPoupanca extends RegistroContas {
 
-    public ContaPoupanca(String numero, double saldoInicial, Cliente cliente) {
+    public ContaPoupanca(String numero, double saldoInicial, RegistroClientes cliente) {
         super(numero, saldoInicial, cliente);
     }
 
@@ -11,7 +11,7 @@ public class ContaPoupanca extends Conta {
         System.out.println("Aplicação de juros simples a taxa de " + taxa + "%, por " + tempoMeses + " meses foi realizada com sucesso!");
     }
 
-    public void imprimirExtrato(Cliente titular) {
+    public void imprimirExtrato(RegistroClientes titular) {
         System.out.println("Extrato conta poupança: ");
         super.imprimirInfoComuns(titular);
     }
