@@ -5,7 +5,13 @@ import business.beans.RegistroContas;
 
 public interface IRepositoryConta {
 
-    void cadastrar(RegistroContas conta);
+    /**
+     * Cadastra uma nova conta no array de contas.
+     *
+     * @param conta
+     *          A referência da conta a ser cadastrada
+     */
+    void cadastrarConta(Conta conta);
     void cadastrar(String numero, double saldoInicial, RegistroClientes cliente);
     RegistroContas procurar(String numero);
     void remover(String numero);

@@ -1,6 +1,6 @@
 package business.beans;
 
-public class RegistroContas implements IConta {
+public class RegistroContas {
 
     //Toda instância de conta receberá como agência a agência padrão.
     private static final int AGENCIA_PADRAO = 1;
