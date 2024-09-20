@@ -84,6 +84,18 @@ public class RepositoryContaArray implements IRepositoryConta{
 
     /*
      * (non-Javadoc)
+     */
+    public boolean existe(String numero) {
+        boolean existe = false;
+        int indice = this.procurarIndice(numero);
+        if (indice != proxima) {
+            existe = true;
+        }
+        return existe;
+    }
+
+    /*
+     * (non-Javadoc)
      *
      * sistema_bancario.negocio.classes_basicas.Conta)
      */
@@ -192,7 +204,7 @@ public class RepositoryContaArray implements IRepositoryConta{
      * @param numero Número da conta a ser removida.
      */
     @Override
-    public void remover(String numero) {
+    public void removerConta(String numero) {
         //Definição da variável e chamada do método procurarIndice(numero).
         int indice = this.procurarIndice(numero);
         //Implementação de estrutura condicional para verificar a conta procurada.
@@ -212,10 +224,27 @@ public class RepositoryContaArray implements IRepositoryConta{
     @Override
     public void renderJuros(String numero, int tempo) {
         //Atribuição de uma conta.
-        RegistroContas conta = this.procurar(numero);
+        Conta conta = this.procurarConta(numero);
         //Implementação de estrutura condicional de verificação.
         if (conta instanceof ContaPoupanca) {
             ((ContaPoupanca) conta).rendendoJuros(this.TAXA_JUROS, tempo);
         }
     }
+
+    /*
+     * (non-Javadoc)
+     *
+     */
+    public Conta[] retornaContasVIP() {
+        Conta[] contasVIP = new Conta[this.proxima];
+        int posicaoAtual = 0;
+        for (int contador = 0; contador < this.proxima; contador++) {
+            if (this.contas[contador].getSaldo() > 1000) {
+                contasVIP[posicaoAtual] = this.contas[contador];
+                posicaoAtual++;
+            }
+        }
+        return contasVIP;
+    }
+
 }
