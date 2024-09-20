@@ -1,4 +1,4 @@
-package business.beans;
+package business;
 
 public class RegistroAdministradores {
 

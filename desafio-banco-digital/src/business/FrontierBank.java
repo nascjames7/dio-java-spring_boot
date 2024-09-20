@@ -1,10 +1,9 @@
-package business.beans;
+package business;
 
-import exceptions.ContaNaoExistenteException;
+import business.beans.Conta;
 import exceptions.ContaNaoPodeSerDuplicadaException;
-import exceptions.SaldoIncompativelException;
 
-public class FrontierBank implements IBanco{
+public class FrontierBank implements IBanco {
 
     private RegistroClientes clientes;
     private RegistroContas contas;

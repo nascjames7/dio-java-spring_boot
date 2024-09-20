@@ -1,9 +1,7 @@
-package business.beans;
+package business;
 
 public class RegistroClientes {
 
-    private String nome;
-    private String cpf;
     private RegistroClientes[] clientes;
     private int proxima;
 

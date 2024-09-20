@@ -1,5 +1,5 @@
 package business.beans;
-
+import business.beans.Cliente;
 import exceptions.SaldoIncompativelException;
 
 public class ContaEspecial extends Conta {
@@ -39,6 +39,11 @@ public class ContaEspecial extends Conta {
             double juros = Math.abs(this.saldo * TAXA_JUROS);
             this.sacar(juros);
             System.out.println("Saldo atual da conta: " + (this.saldo - juros) + " reais.");
+        }
+
+        public void imprimirExtrato(Cliente titular) {
+            System.out.println("Extrato conta especial: ");
+            super.imprimirInfoComuns(titular);
         }
     }
 

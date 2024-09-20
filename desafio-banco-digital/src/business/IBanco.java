@@ -1,5 +1,6 @@
-package business.beans;
+package business;
 
+import business.RegistroContas;
 import exceptions.ContaNaoExistenteException;
 import exceptions.ContaNaoPodeSerDuplicadaException;
 import exceptions.SaldoIncompativelException;

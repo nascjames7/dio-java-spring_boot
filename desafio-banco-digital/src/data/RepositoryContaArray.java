@@ -1,7 +1,7 @@
 package data;
 
-import business.beans.RegistroClientes;
-import business.beans.RegistroContas;
+import business.RegistroClientes;
+import business.RegistroContas;
 import business.beans.ContaPoupanca;
 ;
 
