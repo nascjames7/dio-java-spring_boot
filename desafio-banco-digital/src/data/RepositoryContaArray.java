@@ -2,27 +2,95 @@ package data;
 
 import business.RegistroClientes;
 import business.RegistroContas;
+import business.beans.Cliente;
+import business.beans.Conta;
 import business.beans.ContaPoupanca;
-;
+
+import java.io.*;
 
 public class RepositoryContaArray implements IRepositoryConta{
 
     private static final double TAXA_JUROS = 0.75;
-    private RegistroContas[] contas;
+    private Conta[] contas;
     private int proxima;
+
+    private static RepositoryContaArray instance;
     /**
      * Construtor público
      * @param tamanho Tamanho inicial do array de contas a ser construido
      */
     public RepositoryContaArray(int tamanho) {
         //Instancia uma conta de tamanho definido.
-        this.contas = new RegistroContas[tamanho];
+        this.contas = new Conta[tamanho];
         this.proxima = 0;
     }
 
+    public static IRepositoryConta getInstance() {
+        //Verifica se a intancia de uma interface IRepositoryConta é nula.
+        if (instance == null) {
+            instance = lerDoArquivo();
+        }
+        return instance;
+    }
+
+    private static RepositoryContaArray lerDoArquivo() {
+        //Instanciação de um objeto da classe RepositorioContaArray.
+        RepositoryContaArray instanciaLocal = null;
+
+        File in = new File("contas.dat");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        try {
+            fis = new FileInputStream(in);
+            ois = new ObjectInputStream(fis);
+            Object o = ois.readObject();
+            instanciaLocal = (RepositoryContaArray) o;
+        } catch (Exception e) {
+            instanciaLocal = new RepositoryContaArray(100);
+        } finally {
+            if (ois != null) {
+                try {
+                    ois.close();
+                } catch (IOException e) {/* Silent exception */
+                }
+            }
+        }
+        return instanciaLocal;
+    }
+
+    public void salvarArquivo() {
+        if (instance == null) {
+            return;
+        }
+        File out = new File("contas.dat");
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            fos = new FileOutputStream(out);
+            oos = new ObjectOutputStream(fos);
+            oos.writeObject(instance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oos != null) {
+                try {
+                    oos.close();
+                } catch (IOException e) {
+                    /* Silent */}
+            }
+        }
+    }
+
+    /*
+     * (non-Javadoc)
+     *
+     * sistema_bancario.negocio.classes_basicas.Conta)
+     */
+
     //Método que cadastra contas.
     @Override
-    public void cadastrar(RegistroContas conta) {
+    public void registrarConta(Conta conta) {
         //Adiona a conta no Array contas.
         this.contas[this.proxima] = conta;
         //Incremento da posição do Array para cadastrar a próxima conta.
@@ -43,7 +111,7 @@ public class RepositoryContaArray implements IRepositoryConta{
         //Implementação de estrutura condicional que verifica se o Array não está vazio.
         if (this.contas != null && this.contas.length > 0) {
             //Instanciação do Array com tamanho duplicado.
-            RegistroContas[] arrayDuplicado = new RegistroContas[this.contas.length * 2];
+            Conta[] arrayDuplicado = new Conta[this.contas.length * 2];
             //Implementação do laço para realocar os dados do Array anterior para o novo array duplicado.
             for (int contador = 0; contador < this.contas.length; contador++) {
                 //Realocação do array menor para o maior.
@@ -63,25 +131,25 @@ public class RepositoryContaArray implements IRepositoryConta{
      * @param saldoInicial Saldo inicial da conta a ser criada e cadastrada
      */
     @Override
-    public void cadastrar(String numero, double saldoInicial, RegistroClientes cliente) {
+    public void registrarConta(String numero, double saldoInicial, Cliente cliente) {
         //Instanciação do objeto da classe Conta através dos parâmetros acima.
-        RegistroContas conta = new RegistroContas(numero, saldoInicial, cliente);
-        this.cadastrar(conta);
+        Conta conta = new Conta(numero, saldoInicial, cliente);
+        this.registrarConta(conta);
     }
 
     /**
      * Método que encontra uma determinada conta com base em seu número.
      *
      * @param numero O nÚmero da conta a ser procurada
-     * @return A conta encontrada ou null se o número de conta passado com
+     * @return A conta  é encontrada ou null se o número de conta passado com
      *         parâmetro não existir
      */
     @Override
-    public RegistroContas procurar(String numero) {
+    public Conta procurarConta(String numero) {
         //Definição da variável indice.
         int indice = this.procurarIndice(numero);
         //Instanciação de uma conta nula (vazia).
-        RegistroContas resultado = null;
+        Conta resultado = null;
         //Implementação da estrutura condicional que encontra a conta através do número.
         if (indice != this.proxima) {
             //Define a conta procurada na variável resultado.

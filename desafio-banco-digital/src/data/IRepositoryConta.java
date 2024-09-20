@@ -26,7 +26,7 @@ public interface IRepositoryConta {
      * @param clint
      *          Cliente que possue a respectiva conta.
      */
-    void registrar(String numero, double saldoInicial, Cliente clint);
+    void registrarConta(String numero, double saldoInicial, Cliente clint);
     /**
      * Procurar uma conta baseado no n�mero dado como par�metro
      *

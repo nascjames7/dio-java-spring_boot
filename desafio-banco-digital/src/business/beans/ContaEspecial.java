@@ -41,10 +41,11 @@ public class ContaEspecial extends Conta {
             System.out.println("Saldo atual da conta: " + (this.saldo - juros) + " reais.");
         }
 
-        public void imprimirExtrato(Cliente titular) {
-            System.out.println("Extrato conta especial: ");
-            super.imprimirInfoComuns(titular);
-        }
+    }
+
+    public void imprimirExtrato(Cliente titular) {
+        System.out.println("Extrato conta especial: ");
+        super.imprimirInfoComuns(titular);
     }
 
     public static void main(String[] args) {
