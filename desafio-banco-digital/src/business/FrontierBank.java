@@ -1,7 +1,10 @@
 package business;
 
 import business.beans.Conta;
+import data.RepositoryContaArray;
+import exceptions.ContaNaoExistenteException;
 import exceptions.ContaNaoPodeSerDuplicadaException;
+import exceptions.SaldoIncompativelException;
 
 public class FrontierBank implements IBanco {
 
@@ -14,8 +17,8 @@ public class FrontierBank implements IBanco {
     // Construtor privado para evitar instanciação fora da classe.
     private FrontierBank() {
         this.contas = new RegistroContas(RepositoryContaArray.getInstance());
-        this.clientes = new RegistroClientes();
-        this.adms = new RegistroAdministradores();
+        this.clientes = new RegistroClientes(5);
+        this.adms = new RegistroAdministradores("jan", "1234");
     }
     /**
      * Implementando padrão Singleton
@@ -29,68 +32,64 @@ public class FrontierBank implements IBanco {
         return instance;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ufrpe.sistema_bancario.negocio.IFachada#cadastrarCliente()
-     */
+    @Override
     public void cadastrarCliente() {
-        this.clientes.cadastrarCliente();
+
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ufrpe.sistema_bancario.negocio.IFachada#cadastrarConta(br.ufrpe.
-     * sistema_bancario.negocio.beans.Conta)
-     */
-    public void cadastrarConta(Conta conta) throws ContaNaoPodeSerDuplicadaException {
-        this.contas.cadastrarConta(conta);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.ufrpe.sistema_bancario.negocio.IFachada#procurarConta(java.lang.String)
-     */
-    public Conta procurarConta(String num) throws ContaNaoExisteException {
-        return this.contas.procurar(num);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.ufrpe.sistema_bancario.negocio.IFachada#transferir(java.lang.String,
-     * java.lang.String, double)
-     */
-    public void transferir(String numOrigem, String numDestino, double valor)
-            throws ContaNaoExisteException, SaldoInsuficienteException {
-        contas.transferir(numOrigem, numDestino, valor);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * br.ufrpe.sistema_bancario.negocio.IFachada#removerConta(java.lang.String)
-     */
-    public void removerConta(String num) throws ContaNaoExisteException {
-        this.contas.remover(num);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see br.ufrpe.sistema_bancario.negocio.IFachada#efetuarLogin()
-     */
+    @Override
     public void efetuarLogin() {
-        this.logins.efetuarLogin();
+
     }
 
     @Override
     public void cadastrarConta(RegistroContas conta) throws ContaNaoPodeSerDuplicadaException {
 
     }
+
+    @Override
+    public void removerConta(String numero) throws ContaNaoExistenteException {
+
+    }
+
+    @Override
+    public RegistroContas procurarConta(String numero) throws ContaNaoExistenteException {
+        return null;
+    }
+
+    @Override
+    public void transferir(String numOrigem, String numDestino, double valor) throws ContaNaoExistenteException, SaldoIncompativelException {
+
+    }
+
+
+
+    /*public void cadastrarConta(Conta conta) throws ContaNaoPodeSerDuplicadaException {
+        this.contas.cadastrarConta(conta);
+    }
+
+
+    public Conta procurarConta(String numero) throws ContaNaoExistenteException {
+        return this.contas.procurarConta(numero);
+    }
+
+
+    public void transferir(double valor, Conta destino)
+            throws ContaNaoExistenteException, SaldoIncompativelException {
+        contas.transferir(valor, destino);
+    }
+
+
+    public void removerConta(String num) throws ContaNaoExisteException {
+        this.contas.remover(num);
+    }
+
+
+    public void efetuarLogin() {
+        this.logins.efetuarLogin();
+    }
+
+    @Override
+    public void cadastrarConta(RegistroContas conta) throws ContaNaoPodeSerDuplicadaException {
+*/
 }

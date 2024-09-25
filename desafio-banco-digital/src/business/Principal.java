@@ -1,9 +1,10 @@
 package business;
 
 import business.beans.*;
+import exceptions.SaldoIncompativelException;
 
 public class Principal{
-    public static void main(String[]args){
+    public static void main(String[]args) throws SaldoIncompativelException {
 
         //Instanciação dos objeto dos tipos business.beans.Cliente, business.beans.ContaCorrente e ContaPoupanca usando Polimorfismo.
         Cliente c1 = new Cliente("James", "045684488-89");
@@ -24,11 +25,11 @@ public class Principal{
         poupanca.transferir(2500, cc);
 
         //Chamada de método imprimirExtrato.
-        ((ContaCorrente)cc).imprimirExtrato(james);
-        ((ContaPoupanca)poupanca).imprimirExtrato(james);
+        ((ContaCorrente)cc).imprimirExtrato(c1);
+        ((ContaPoupanca)poupanca).imprimirExtrato(c2);
 
         //Testando as funcionalidades da classe ContaEspecial.
-        Conta special = new ContaEspecial("785-155", 5000, james);
+        Conta special = new ContaEspecial("785-155", 5000, c1);
         special.depositar(2500.0);
         special.sacar(900.0);
         ((ContaEspecial) special).aumentarLimite(1500.0);

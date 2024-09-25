@@ -1,11 +1,18 @@
 package business;
 
+import business.beans.Cliente;
+
 public class RegistroClientes {
 
     private RegistroClientes[] clientes;
+
+    private Cliente clint;
+
+    private String nome;
+    private String cpf;
     private int proxima;
 
-    public RegistroClientes(String nome, String cpf, int tamanho) {
+    public RegistroClientes(int tamanho) {
         this.nome = nome;
         this.cpf = cpf;
         this.clientes = new RegistroClientes[tamanho];
